@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>team</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+    <body>
+        <header>
+            <h1 id="title">team</h1>
+        </header>
+        <div class="container" id="cards">
+            <div class="row">
+    <div class="card col-md-4 employee" style="width: 22rem; height:17rem;">
+    <div class="card-body">
+        <h4 class="card-title">man</h5>
+        <h4 class="card-title">Manager</h5>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">ID: M</li>
+            <li class="list-group-item">Email: email</li>
+            <li class="list-group-item">Office Number: 1</li>
+        </ul>
+    </div>
+</div><div class="card col-md-4 employee" style="width: 22rem; height:17rem;">
+    <div class="card-body">
+        <h4 class="card-title">eng</h5>
+        <h4 class="card-title">Engineer</h5>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">ID: E0</li>
+            <li class="list-group-item">Email: email</li>
+            <a href="https://github.com/TopGek99/" target="_blank"><li class="list-group-item">GitHub: TopGek99</li></a>
+        </ul>
+    </div>
+</div><div class="card col-md-4 employee" style="width: 22rem; height:17rem;">
+    <div class="card-body">
+        <h4 class="card-title">eng1</h5>
+        <h4 class="card-title">Engineer</h5>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">ID: E1</li>
+            <li class="list-group-item">Email: email</li>
+            <a href="https://github.com/TopGek99/" target="_blank"><li class="list-group-item">GitHub: TopGek99</li></a>
+        </ul>
+    </div>
+</div>
+</div><div class="row">
+    <div class="card col-md-4 employee" style="width: 22rem; height:17rem;">
+    <div class="card-body">
+        <h4 class="card-title">eng2</h5>
+        <h4 class="card-title">Engineer</h5>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">ID: E2</li>
+            <li class="list-group-item">Email: email</li>
+            <a href="https://github.com/TopGek99/" target="_blank"><li class="list-group-item">GitHub: TopGek99</li></a>
+        </ul>
+    </div>
+</div><div class="card col-md-4 employee" style="width: 22rem; height:17rem;">
+    <div class="card-body">
+        <h4 class="card-title">eng3</h5>
+        <h4 class="card-title">Engineer</h5>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">ID: E3</li>
+            <li class="list-group-item">Email: email</li>
+            <a href="https://github.com/TopGek99/" target="_blank"><li class="list-group-item">GitHub: TopGek99</li></a>
+        </ul>
+    </div>
+</div><div class="card col-md-4 employee" style="width: 22rem; height:17rem;">
+    <div class="card-body">
+        <h4 class="card-title">int</h5>
+        <h4 class="card-title">Intern</h5>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">ID: I0</li>
+            <li class="list-group-item">Email: email</li>
+            <li class="list-group-item">School: UofA</li>
+        </ul>
+    </div>
+</div>
+</div><div class="row">
+    <div class="card col-md-6 employee" style="width: 22rem; height:17rem;">
+    <div class="card-body">
+        <h4 class="card-title">int1</h5>
+        <h4 class="card-title">Intern</h5>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">ID: I1</li>
+            <li class="list-group-item">Email: email</li>
+            <li class="list-group-item">School: UofA</li>
+        </ul>
+    </div>
+</div><div class="card col-md-6 employee" style="width: 22rem; height:17rem;">
+    <div class="card-body">
+        <h4 class="card-title">int2</h5>
+        <h4 class="card-title">Intern</h5>
+        <br>
+        <ul class="list-group">
+            <li class="list-group-item">ID: I2</li>
+            <li class="list-group-item">Email: email</li>
+            <li class="list-group-item">School: UofA</li>
+        </ul>
+    </div>
+</div>
+</div>
+        </div>
+        <script>
+            const links = document.querySelectorAll("a > li");
+            links.forEach((link) => {
+                link.addEventListener("mouseenter",() => {
+                    link.classList.add("active");
+                });
+                link.addEventListener("mouseleave",() => {
+                    link.classList.remove("active");
+                });
+            }); 
+        </script>
+    </body>
+    </html>

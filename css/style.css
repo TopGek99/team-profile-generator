@@ -1,0 +1,22 @@
+header {
+    background-color:rebeccapurple;
+    padding: 2%;
+}
+#title {
+    color: white;
+    text-align: center;
+}
+h1 {
+    font-size: 50px;
+}
+#cards {
+    margin: 5% 18%;
+    text-align: center;
+}
+.employee {
+    margin: 3% 3%;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
