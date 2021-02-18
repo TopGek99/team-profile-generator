@@ -45,14 +45,14 @@ function init() {
         questions.splice(0,1);
     });
 
-    while(role != 'I\'m done') {
-        inquirer.prompt(questions)
-        .then((answers) => {
+    // while(role != 'I\'m done') {
+    //     inquirer.prompt(questions)
+    //     .then((answers) => {
         
-            console.log(answers);
-            role = answers.next;
-        });
-    }
+    //         console.log(answers);
+    //         role = answers.next;
+    //     });
+    // }
 }
 
 init();
