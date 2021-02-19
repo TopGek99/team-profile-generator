@@ -75,7 +75,6 @@ function recursiveInit() {
     inquirer
     .prompt(questions)
     .then((answers) => {
-        // console.log(answers);
         createEmployee(answers);
         role = answers.next
     })
@@ -118,23 +117,19 @@ function createEmployee(answers) {
     switch (role) {
         case "Manager":
             let mngr = new Manager(name,id,email,answers.officeNumber);
-            console.log(mngr);
             employeeArray.push(mngr);
             break;
         case "Engineer":
             let eng = new Engineer(name,id,email,answers.github);
-            console.log(eng);
             employeeArray.push(eng);
             break;
         case "Intern":
             let intern = new Intern(name,id,email,answers.school);
-            console.log(intern);
             employeeArray.push(intern);
             break;
         default:
             break;
     }
 }
-
 
 init();
