@@ -21,7 +21,7 @@ The installation of this project is as simple as having the files in this reposi
   
 ## Usage
 
-the program can be run by typing either ```node index.js``` or ```npm start``` in the command line. [Walkthrough Video]()
+the program can be run by typing either ```node index.js``` or ```npm start``` in the command line. [Walkthrough Video](https://drive.google.com/file/d/1UxccGJGmo0MLMFHSuTvjOEvren0e0eI5/view)
   
 ## License
   
@@ -33,7 +33,7 @@ Any contribution is welcome.
   
 ## Tests
 
-as jest is installed as a dependency, you can test the fucntionality of the classes by running ```npm test```. To further test the functionalities, you can run the program and try varies ways of inputting and different numbers of employees to see how it eventuates.
+As jest is installed as a dependency, you can test the fucntionality of the classes by running ```npm test```. To further test the functionalities, you can run the program and try varies ways of inputting and different numbers of employees to see how it eventuates.
   
 ## Questions
   
