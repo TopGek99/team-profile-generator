@@ -21,7 +21,7 @@ The installation of this project is as simple as having the files in this reposi
   
 ## Usage
 
-the program can be run by typing either ```node index.js``` or ```npm start``` in the command line. [Walkthrough Video]()
+the program can be run by typing either ```node index.js``` or ```npm start``` in the command line. [Walkthrough Video](https://drive.google.com/file/d/1UxccGJGmo0MLMFHSuTvjOEvren0e0eI5/view)
   
 ## License
   
