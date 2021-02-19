@@ -5,7 +5,33 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateWebPage = require('./src/generateWebPage');
 
+// variables declared. role initialised as "Manager" as the first employee entered to the system is always the Manager
 var role = "Manager";
+var employeeArray = [];
+var teamName;
+// initialQuestion left out of the questions array as it only needs to be called once, the other 3 are added to the array when required
+const initialQuestion = [{
+    type: 'input',
+    name: 'teamName',
+    message: 'What is your Team\'s name?'
+}];
+const mngrQuestion = {
+    type: 'input',
+    name: 'officeNumber',
+    message: 'What is your Manager\'s office number?'
+};
+const engQuestion = {
+    type: 'input',
+    name: 'github',
+    message: 'What is your Engineer\'s GitHub username?'
+};
+const internQuestion = {
+    type: 'input',
+    name: 'school',
+    message: 'What is your school does your Intern attend?'
+};
+
+// function to define questions being asked to be called every time the "role" variable changes
 function defineQuestions() {
     questions = [
         {
@@ -30,6 +56,7 @@ function defineQuestions() {
             choices: ['Engineer','Intern','I\'m done']
         }
     ];
+    // changes the fourth question in the array depending on which role is being entered
     switch (role) {
         case "Manager":
             questions.splice(3, 0, mngrQuestion);
@@ -44,33 +71,13 @@ function defineQuestions() {
             break;
     }
 }
-var employeeArray = [];
-var teamName;
-const initialQuestion = [{
-    type: 'input',
-    name: 'teamName',
-    message: 'What is your Team\'s name?'
-}];
-const mngrQuestion = {
-    type: 'input',
-    name: 'officeNumber',
-    message: 'What is your Manager\'s office number?'
-};
-const engQuestion = {
-    type: 'input',
-    name: 'github',
-    message: 'What is your Engineer\'s GitHub username?'
-};
-const internQuestion = {
-    type: 'input',
-    name: 'school',
-    message: 'What is your school does your Intern attend?'
-};
 
+// function to write the generated page to a file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName,data,(err) => err ? console.error(err) : console.log("Success!"));
 }
 
+// recursively adds employees to the list, only stopping when the user signals "I'm done"
 function recursiveInit() {
     inquirer
     .prompt(questions)
@@ -79,16 +86,20 @@ function recursiveInit() {
         role = answers.next
     })
     .then(() => {
+        // if the user has not finished entering their employees, the functions calls itself to add another
         if (role != 'I\'m done') {
             defineQuestions();
             recursiveInit();
-        } else {
+        }
+        // otherwise it sorts the employee array and writes it into the html file 
+        else {
             sortEmployeesById();
             writeToFile('index.html',generateWebPage(employeeArray,teamName));
         }
     });
 }
 
+// initialises by asking the user for their teamname then making the first call to recursiveInit
 function init() {
     defineQuestions();
     inquirer.prompt(initialQuestion)
@@ -98,10 +109,16 @@ function init() {
     });
 }
 
+// function to sort the employeeArray by the ids. The id system is as follows
+// Manager ID: 'M'
+// Engineer ID: 'E'+n
+// Intern ID: 'I'+n
+// Where n is the number of Engineer/Intern the employ is (first Engineer is 'E0', third Intern is 'I2' etc.)
+// This is so that when the page is being created, the employees will be sorted by rank, then by number
 function sortEmployeesById() {
     employeeArray.sort(function(e1, e2) {
-        let id1 = e1.id.toUpperCase(); // ignore upper and lowercase
-        let id2 = e2.id.toUpperCase(); // ignore upper and lowercase
+        let id1 = e1.id.toUpperCase();
+        let id2 = e2.id.toUpperCase();
         if (id1[0] == id2[0] && id1 != 'M') {
             return parseInt(id1.substr(1)) - parseInt(id2.substr(1));
         }
@@ -112,8 +129,10 @@ function sortEmployeesById() {
     });
 }
 
+// function to create an employee object then add it to the employeeArray
 function createEmployee(answers) {
     const {name, id, email} = answers;
+    // creates and pushes an object of type equal to that of role
     switch (role) {
         case "Manager":
             let mngr = new Manager(name,id,email,answers.officeNumber);
@@ -132,4 +151,5 @@ function createEmployee(answers) {
     }
 }
 
+// initialises program
 init();

@@ -1,7 +1,10 @@
-function generateEmployeeCards(data) {
+// function to generate the employee cards that appear on the web page
+function generateEmployeeCards(employees) {
     let returnStr = ``;
-    data.forEach(employee => {
-        let thirdAttr;
+    // creates a new card for each employee in the employees array
+    employees.forEach(employee => {
+        let thirdAttr = "";
+        // switch case determines which third attribute will be on the card based on which role is being created
         switch (employee.getRole()) {
             case "Manager":
                 thirdAttr = `<li class="list-group-item">Office Number: ${employee.officeNumber}</li>`
@@ -15,12 +18,16 @@ function generateEmployeeCards(data) {
             default:
                 break;
         }
+        // newline is purely for the purpose of maintaining good formatting in the html file
         let newline = `
             `;
-        if (data.indexOf(employee) == data.length-1) {
+        // newline is removed if it the employee is the last in the row, to prevent random whitespace in html file
+        if (employees.indexOf(employee) == employees.length-1) {
             newline = ``;
         }
-        let colSize = 12/data.length;
+        // determining how much space the cards take up based on how many in the row
+        let colSize = 12/employees.length;
+        // adds a new card in html to the returnStr for each employee
         returnStr = returnStr.concat(`<div class="col-md-${colSize}">
                 <div class="card employee" style="width: 22rem; height:17rem;">
                     <div class="card-body">
@@ -39,18 +46,23 @@ function generateEmployeeCards(data) {
     return returnStr;
 }
 
-function generateWebPage(data,teamName) {
+// function takes in the employeeArray and teamName and generates an html file
+function generateWebPage(employeeArray,teamName) {
     let rowStr = ``;
-    for (let i=0;i<(data.length/3);i++) {
+    // loop creates a new row after every third card
+    for (let i=0;i<(employeeArray.length/3);i++) {
+        // formatting
         let newline = `
         `;
-        if (i+1 >= data.length/3) {
+        if (i+1 >= employeeArray.length/3) {
             newline = ``;
         }
+        // each iteration calls generateEmployeeCards on 3 employees from the employeeArray
         rowStr = rowStr.concat(`<div class="row emp-row">
-            ${generateEmployeeCards(data.slice(i*3,(i*3)+3))}
+            ${generateEmployeeCards(employeeArray.slice(i*3,(i*3)+3))}
         </div>${newline}`);
     }
+    // returns full html document generated using employees
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
